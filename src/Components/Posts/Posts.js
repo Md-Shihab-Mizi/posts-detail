@@ -7,36 +7,33 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { Grid, Paper } from '@material-ui/core';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 140,
-    },
-  });
-  
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 140,
+  },
+});
 
 
 const Posts = (props) => {
-const {title,body,id} = props.post;
-const history = useHistory();
-const handleClick =(friendId)=>{
-  const url = `/post/${friendId}`
-  history.push(url);
-}
-
-const classes = useStyles();
+  const { title, body, id } = props.post;
 
 
-    return (
-        <div>
+  const history = useHistory();
+  const handleClick = (postId) => {
+    const url = `/post/${postId}`
+    history.push(url);
+  }
+
+  const classes = useStyles();
 
 
-          <Card className={classes.root}>
+  return (
+ <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -45,30 +42,22 @@ const classes = useStyles();
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-           {title}
+            {title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-        {body}
+            {body}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-      
-{/* <Link  to={`/post/${id}`}><Button variant="outlined" color="secondary">
- Read More
-</Button></Link> */}
-
-
-<Button onClick={()=>handleClick(id)} variant="outlined" color="secondary">
- CLick me
+        <Button onClick={() => handleClick(id)} variant="outlined" color="secondary">
+          CLick me
 </Button>
       </CardActions>
-      
     </Card>
 
-
-        </div>
-    );
+   
+  );
 };
 
 export default Posts;

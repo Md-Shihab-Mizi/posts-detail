@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Posts from '../Posts/Posts';
+import { Grid } from '@material-ui/core';
 
 const Home = () => {
     const [posts,setPosts] = useState([]);
@@ -10,11 +11,14 @@ const Home = () => {
    .then(data =>setPosts(data))
   },[]);
   return (
-    <div >
+    <div>
     <h1> Posts : {posts.length}</h1>
-    {
+
+      {
         posts.map(post => <Posts post={post}></Posts>)
-    }
+      }
+
+    
 </div>
   );
 };
