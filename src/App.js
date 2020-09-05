@@ -9,6 +9,7 @@ import {
   Link
 } from "react-router-dom";
 import NotFound from './Components/NotFound/NotFound';
+import PostDetail from './Components/PostDetail/PostDetail';
 
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
         <Switch>
           <Route path="/home">
           <Home></Home>
+          </Route>
+          <Route path="/post/:postId">
+<PostDetail></PostDetail>
           </Route>
           <Route exact path="/">
           <Home></Home>

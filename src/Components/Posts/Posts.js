@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Grid, Paper } from '@material-ui/core';
+import { Link, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -21,7 +22,12 @@ const useStyles = makeStyles({
 
 
 const Posts = (props) => {
-const {title,body} = props.post;
+const {title,body,id} = props.post;
+const history = useHistory();
+const handleClick =(friendId)=>{
+  const url = `/post/${friendId}`
+  history.push(url);
+}
 
 const classes = useStyles();
 
@@ -47,10 +53,17 @@ const classes = useStyles();
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button variant="outlined" color="secondary">
+      
+{/* <Link  to={`/post/${id}`}><Button variant="outlined" color="secondary">
  Read More
+</Button></Link> */}
+
+
+<Button onClick={()=>handleClick(id)} variant="outlined" color="secondary">
+ CLick me
 </Button>
       </CardActions>
+      
     </Card>
 
 
