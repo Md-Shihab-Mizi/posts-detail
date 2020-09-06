@@ -22,6 +22,7 @@ const useStyles = makeStyles({
 const PostDetail = (props) => {
 
 
+
   //Comments API
   const { postId } = useParams();
   const [comments, setComments] = useState([]);
@@ -47,11 +48,6 @@ const PostDetail = (props) => {
     <div>
       <Card style={{ margin: 'auto' }} className={classes.root}>
         <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image="/static/images/cards/contemplative-reptile.jpg"
-            title="Contemplative Reptile"
-          />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               <p>This is post Detail {postId}</p>
@@ -67,6 +63,7 @@ const PostDetail = (props) => {
           {
             comments.map(comment => <Comment comment={comment}></Comment>)
           }
+
         </Typography>
       </Card>
     </div>
