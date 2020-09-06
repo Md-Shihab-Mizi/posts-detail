@@ -2,9 +2,8 @@ import React from 'react';
 
 const NotFound = () => {
     return (
-        <div>
-            <h3>Route Not Found</h3>
-            <h1>404</h1>
+        <div style={{ marginLeft: '350px'}}>
+            <img src="https://colorlib.com/wp/wp-content/uploads/sites/2/404-error-page-templates.jpg" alt=""/>  
         </div>
     );
 };
